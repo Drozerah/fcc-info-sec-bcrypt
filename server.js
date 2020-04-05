@@ -22,9 +22,12 @@ bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash){
 //END_ASYNC
 
 //START_SYNC
+const hash = bcrypt.hashSync(myPlaintextPassword, saltRounds)
+const result = bcrypt.compareSync(myPlaintextPassword, hash)
+console.log(result)
 //END_SYNC
 
 
 app.listen(process.env.PORT || 3000, () => {
-  console.log(`Server listening ${process.env.PORT || 3000}`) // !DEBUG
+  console.log(`Server listening ${process.env.PORT || 3000}`)
 });
